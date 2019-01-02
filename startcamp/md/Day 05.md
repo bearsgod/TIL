@@ -11,6 +11,13 @@
 ## C9
 
 * 웹서버
+
 * pyenvy로 python 3.6.7 설치함
+
 * https://telegram-godbear.c9users.io ->> 어플리케이션 주소
+
 * https://ide.c9.io/godbear/telegram ->>에디터 주소
+
+* 결과적으로 제대로 한 건 없는 듯. 나중에 코드 보던지
+
+
