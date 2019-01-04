@@ -14,5 +14,5 @@ else:
     a,b = l[r-k]
 print(f'{a}/{b}')
 
-for i in range(int(input()),-1):
+for i in range(int(input()),0):
     print(i,end=' ')

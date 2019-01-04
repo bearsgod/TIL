@@ -1,15 +1,18 @@
 tcn = int(input())
+    
 for i in range(tcn):
     tc = input()
     s,f = tc.split(' ')
     dt = int(f) - int(s)
-    maxtry = 0
-    k = 0
-    while maxtry < dt:
-        k += 1
-        j = k//2 + 1
-        if k % 2:
-            maxtry = j + sum(range(j)) * 2
+    n = 1
+    maxdt = 1
+    while dt > maxdt:
+        if n % 2:
+            maxdt = ((n+1)/2)**2
         else:
-            maxtry = sum(range(j)) * 2
-    print(k)
+            maxdt = (n/2+1)**2 - (n/2+1)
+        n += 1
+    if dt == 1:
+        print(n)
+    else:
+        print(n-1)
