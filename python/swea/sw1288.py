@@ -6,8 +6,7 @@ for i in range(int(input())):
     while t == 0:
         j+=1
         c = n * j
-        p += str(c)[::1]
-        print(p)
+        p += tuple(str(c)[::1])
         for k in range(10):
             if not str(k) in p:
                 break
