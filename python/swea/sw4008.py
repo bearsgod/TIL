@@ -1,10 +1,11 @@
-def operset(iter):
-    n=len(iter)
-    indices=list(range(n))
-    cycles=list(range(n,0,-1))
-    
-
-import itertools
+def all_perms(elements):
+    if len(elements) <=1:
+        yield elements
+    else:
+        for perm in all_perms(elements[1:]):
+            for i in range(len(elements)):
+                # nb elements[0:1] works in both string and list contexts
+                yield perm[:i] + elements[0:1] + perm[i:]
 
 for i in range(int(input())):
     n=int(input())
@@ -19,9 +20,9 @@ for i in range(int(input())):
             operl[firstindex+k]=operators[j]
             token+=1
         firstindex+=token
-    minnum=1000000000
-    maxnum=-1000000000
-    for x in set(itertools.permutations(operl)):
+    minnum=100000001
+    maxnum=-10000000
+    for x in all_perms(operl):
         result=numl[0]
         for y in range(len(x)):
             if x[y]=='+':
