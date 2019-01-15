@@ -1,0 +1,11 @@
+.font {
+    /* font-size */
+    font-size: 40px;
+    /* font-style */
+    font-style: italic;
+    font-weight: 700; /* bold */
+    font-family: 'Song Myung', serif;
+    line-height: 1.5;
+    letter-spacing: -4px;
+    text-align: center;
+}
