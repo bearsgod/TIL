@@ -3,22 +3,18 @@ def rangesum(x):
         if x<10**big:
             break
     if not big:
-        big = 1
+        return 0
     first_x = x//(10**(big-1))
-    if big == 1:
-        return sum(range(first_x))+first_x
-    elif big == 2:
-        temp = 0
-        for j in range(first_x):
-            temp += j*10**(big-1)
-        middle = first_x*((x%10**(big-1))+1) + temp
-        return 45*first_x + middle + rangesum(x%(10**(big-1)))        
+    if big==1:
+        return sum(range(first_x+1))
     else:
-        temp = 0
-        for j in range(first_x):
-            temp += j*10**(big-1)
-        middle = first_x*((x%10**(big-1))+1) + temp
-        return 45*first_x*10*(big-1) + middle + rangesum(x%(10**(big-1)))
+        temp=(first_x*(big-1)*(10**(big-2))*45)+(sum(range(first_x))*(10**(big-1)))+first_x
+        temp2=0
+        temp3=0
+        if (x-first_x*10**(big-1)):
+            temp2=(x-first_x*10**((big-1)))*first_x
+            temp3=rangesum(x-first_x*10**(big-1))
+        return temp+temp2+temp3
 
 T = int(input())
 for test_case in range(1, T + 1):
