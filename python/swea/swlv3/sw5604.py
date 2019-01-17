@@ -1,5 +1,5 @@
 def rangesum(x):
-    for big in range(15):
+    for big in range(17):
         if x<10**big:
             break
     if not big:
