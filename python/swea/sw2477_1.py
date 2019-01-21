@@ -14,33 +14,35 @@ for T in range(int(input())):
         for get_in in tl:
             if get_in[1]==t:
                 rcwaiting.append([get_in[0]])
-        rcwaiting.sort()
         # 접수창구에 사람 체크, 없으면 넣기
         for rccheck in range(len(rcl)):
             if rcinputl[rccheck][0]!=0:
                 if rcinputl[rccheck][1]+rcl[rccheck]==t:
-                    rpwaiting.append([t,rcinputl[rccheck],rccheck+1])
+                    rpwaiting.append([t,rcinputl[rccheck][0],rccheck+1])
                     rcinputl[rccheck]=[0,0]
             if rcwaiting:
                 if rcinputl[rccheck][0]==0:
-                    rcinputl[rccheck]=[rcwaiting[0],t]
+                    rcinputl[rccheck][0]=rcwaiting[0]
+                    rcinputl[rccheck][1]=t
                     del rcwaiting[0]
-        rpwaiting.sort()
+        print(rpwaiting)
         for rpcheck in range(len(rpl)):
             if rpinputl[rpcheck][0]!=0:
                 if rpinputl[rpcheck][2]+rpl[rpcheck]==t:
                     ending.append([rpinputl[rpcheck][0][0],rpinputl[rpcheck][1],rpcheck+1])
                     rpinputl[rpcheck]=[0,0,0]
             if rpwaiting:
-                if rpinputl[rccheck][0]==0:
+                if rpinputl[rpcheck][0]==0:
                     rpinputl[rpcheck][0]=rpwaiting[0][1]
                     rpinputl[rpcheck][1]=rpwaiting[0][2]
                     rpinputl[rpcheck][2]=t
                     del rpwaiting[0]
         t+=1
-        print(ending)
+    print(ending)
     summary=0
     for last in range(len(ending)):
         if ending[last][1]==a and ending[last][2]==b:
             summary+=ending[last][0]
+    if summary==0:
+        summary=-1
     print(f'#{T+1} {summary}')
